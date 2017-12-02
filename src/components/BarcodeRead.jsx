@@ -54,8 +54,8 @@ export default class BarcodeRead extends React.Component {
           :
           <div>
             <button id="scan" onClick={this.startScan}> Scan </button>
-
-        
+          </div>
+            }
 
       </div>
     )
