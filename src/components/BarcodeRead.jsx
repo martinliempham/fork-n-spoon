@@ -28,11 +28,13 @@ export default class BarcodeRead extends React.Component {
   }
 
   onDetect(result) {
-    this.setState({
-      resultCode: result ? result.codeResult.code : null,
-      scanning: false
-    })
-  }
+      this.setState({
+        resultCode: result ? result.codeResult.code : null,
+        scanning: false
+      });
+
+      this.props.onCodeChange(result.codeResult.code);
+    }
 
   render() {
     return (
@@ -49,13 +51,19 @@ export default class BarcodeRead extends React.Component {
             : null
             }
 
-            <button id="scan" onClick={this.stopScan}>Stop scan</button>
+            <button className="scan" onClick={this.stopScan}>Stop scan</button>
           </div>
           :
           <div>
+
             <button id="scan" onClick={this.startScan}> Scan </button>
           </div>
             }
+
+
+            <button className="scan" onClick={this.startScan}> Scan </button>
+          </div>
+        }
 
       </div>
     )
